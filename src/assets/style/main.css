@@ -1,0 +1,10 @@
+@import './base.css';
+
+#app {
+  width: 100vw;
+}
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
