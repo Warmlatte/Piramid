@@ -1,0 +1,73 @@
+/* 圖形旋轉動畫 */
+@keyframes move {
+  0% {
+    transform: rotate(0deg) translateX(50px) rotate(-0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+
+.circle {
+  z-index: 0;
+  background-color: rgb(236, 164, 245);
+  animation: move 4.5s linear infinite;
+}
+
+/* 圖片入場動畫 */
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* 文字入場動畫 */
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-top {
+  animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* 文字掉落後回彈動畫 */
+@keyframes slide-bounce {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.slide-bounce {
+  animation: slide-bounce 3s cubic-bezier(0.5, 1.5, 0.5, 1) both;
+}
