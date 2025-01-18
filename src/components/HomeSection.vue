@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <div class="container overflow-hidden">
-    <section id="home" class="flex relative">
+  <div class="overflow-hidden">
+    <section id="home" class="flex relative w-full aspect-[16/9]">
       <div class="absolute z-10">
         <h1 class="text-[43px] text-white font-extrabold ml-5 mt-5 slide-in-top">
           Pyramid of DeadLines
@@ -14,15 +14,17 @@
         </nav>
       </div>
 
-      <div class="relative min-w-full min-h-full top-[-250px] left-[400px] slide-in-right">
-        <img
-          src="@/assets/images/home.jpg"
-          alt="Home Image"
-          class="absolute z-10 object-cover rounded-full"
-        />
-        <div
-          class="circle absolute top-[-5px] left-[20px] w-[1280px] h-[1280px] rounded-full"
-        ></div>
+      <div class="relative">
+        <div class="absolute w-[1000px] h-[1000px] top-[-300px] left-[420px] slide-in-right">
+          <img
+            src="@/assets/images/home.jpg"
+            alt="Home Image"
+            class="absolute top-32 z-10 object-cover rounded-full"
+          />
+          <div
+            class="circle absolute rounded-full top-[-5px] left-[30px] w-[1280px] h-[1280px]"
+          ></div>
+        </div>
       </div>
     </section>
   </div>
