@@ -8,6 +8,7 @@
           Pyramid of DeadLines
         </h1>
         <nav class="flex flex-col absolute top-[300px] left-[100px] slide-bounce">
+          <a href="#home" class="text-4xl text-white font-bold">Home</a>
           <a href="#gallery" class="text-4xl text-white font-bold">Gallery</a>
           <a href="#about" class="text-4xl text-white font-bold">About Me</a>
           <a href="#pricing" class="text-4xl text-white font-bold">Guidelines & <br />Pricing</a>
