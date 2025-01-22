@@ -1,17 +1,31 @@
-<script setup></script>
+<script setup>
+const smoothScroll = (event) => {
+  event.preventDefault()
+  const targetId = event.target.getAttribute('href').substring(1)
+  const targetElement = document.getElementById(targetId)
+
+  if (targetElement) {
+    targetElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+}
+</script>
 
 <template>
   <div class="overflow-hidden">
-    <section id="home" class="flex relative w-full aspect-[16/9]">
+    <section id="home" class="flex relative w-full h-[690px] bg-[#1d32ed]">
       <div class="absolute z-10">
         <h1 class="text-[43px] text-white font-extrabold ml-5 mt-5 slide-in-top">
           Pyramid of DeadLines
         </h1>
         <nav class="flex flex-col absolute top-[300px] left-[100px] slide-bounce">
-          <a href="#home" class="text-4xl text-white font-bold">Home</a>
-          <a href="#gallery" class="text-4xl text-white font-bold">Gallery</a>
-          <a href="#about" class="text-4xl text-white font-bold">About Me</a>
-          <a href="#pricing" class="text-4xl text-white font-bold">Guidelines & <br />Pricing</a>
+          <a href="#gallery" @click="smoothScroll" class="text-4xl text-white font-bold">Gallery</a>
+          <a href="#about" @click="smoothScroll" class="text-4xl text-white font-bold">About Me</a>
+          <a href="#pricing" @click="smoothScroll" class="text-4xl text-white font-bold"
+            >Guidelines & <br />Pricing</a
+          >
         </nav>
       </div>
 
@@ -38,9 +52,6 @@
 
 section {
   font-family: 'Playfair Display', serif;
-  background-color: #1d32ed;
-  width: 100%;
-  height: 100vh;
 }
 
 nav a {
