@@ -112,6 +112,7 @@ const openModal = (imageSrc) => {
                 class="object-cover w-full h-full rounded-xl"
                 :src="image.src"
                 :alt="image.alt"
+                loading="lazy"
               />
             </button>
           </div>
