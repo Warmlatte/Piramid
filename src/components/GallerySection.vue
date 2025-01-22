@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import DividerComponents from './DividerComponents.vue'
 
 const galleryRow = [
@@ -75,35 +76,58 @@ const galleryRow = [
     },
   ],
 ]
+
+const modalImage = ref(null)
+const modal = ref(null)
+
+const openModal = (imageSrc) => {
+  modalImage.value = imageSrc
+  modal.value.showModal()
+}
 </script>
 
 <template>
   <section id="gallery" class="flex relative">
     <div class="w-[300px] h-full mt-[207px]">
-      <img class="bg-white object-cover" src="@/assets/images/galleryText.png" alt="" />
+      <img
+        class="bg-white object-cover w-[270px] ml-[30px]"
+        src="@/assets/images/galleryText.png"
+        alt=""
+      />
     </div>
 
-    <div class="main w-[1000px] h-full pt-[200px]">
+    <div class="w-[1000px] h-full pt-[200px] bg-[#334ac9] border-l-[7px] border-[#ff96fd]">
       <div v-for="(row, rowIndex) in galleryRow" :key="rowIndex">
-        <div class="flex flex-row gap-8 pt-5 ml-[42px]">
+        <div class="flex flex-row gap-6 pt-5 ml-[90px]">
           <div
             v-for="(image, index) in row"
             :key="index"
-            class="w-[200px] h-[200px] rounded-3xl overflow-hidden"
+            class="w-[180px] h-[180px] rounded-xl overflow-hidden border-2 border-transparent hover:border-[#ff96fd] transition-all"
           >
-            <img class="object-cover" :src="image.src" :alt="image.alt" />
+            <button
+              class="btn btn-ghost w-full h-full bg-transparent hover:bg-transparent hover:shadow-none p-0"
+              @click="openModal(image.src)"
+            >
+              <img
+                class="object-cover w-full h-full rounded-xl"
+                :src="image.src"
+                :alt="image.alt"
+              />
+            </button>
           </div>
         </div>
-
         <div class="p-5"><DividerComponents /></div>
       </div>
+      <dialog id="fullImage" ref="modal" class="modal">
+        <div class="modal-box">
+          <img :src="modalImage" class="object-cover w-full h-auto" />
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
     </div>
   </section>
 </template>
 
-<style scoped>
-.main {
-  background-color: #334ac9;
-  border-left: 8px solid #ff96fd;
-}
-</style>
+<style scoped></style>
