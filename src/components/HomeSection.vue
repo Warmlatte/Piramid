@@ -15,30 +15,32 @@ const smoothScroll = (event) => {
 
 <template>
   <div class="overflow-hidden">
-    <section id="home" class="flex relative w-full h-[690px] bg-[#1d32ed]">
-      <div class="absolute z-10">
-        <h1 class="text-[43px] text-white font-extrabold ml-5 mt-5 slide-in-top">
-          Pyramid of DeadLines
-        </h1>
-        <nav class="flex flex-col absolute top-[300px] left-[100px] slide-bounce">
-          <a href="#gallery" @click="smoothScroll" class="text-4xl text-white font-bold">Gallery</a>
-          <a href="#about" @click="smoothScroll" class="text-4xl text-white font-bold">About Me</a>
-          <a href="#pricing" @click="smoothScroll" class="text-4xl text-white font-bold"
-            >Guidelines & <br />Pricing</a
-          >
+    <section id="home" class="flex h-screen bg-[#1d32ed]">
+      <!-- Text -->
+      <div class="w-1/2 ml-[2vw] mt-[4vh]">
+        <p class="text-[4vw] text-white font-extrabold slide-in-top">Pyramid of DeadLines</p>
+        <nav class="flex flex-col ml-[10vw] mt-[30vh] slide-bounce">
+          <a href="#gallery" @click="smoothScroll">Gallery</a>
+          <a href="#about" @click="smoothScroll">About Me</a>
+          <a href="#pricing" @click="smoothScroll">Guidelines & <br />Pricing</a>
         </nav>
       </div>
 
-      <div class="relative">
-        <div class="absolute w-[1000px] h-[1000px] top-[-300px] left-[420px] slide-in-right">
+      <!-- Image -->
+      <div class="relative w-1/2">
+        <div class="w-[80vw] absolute z-10 top-[-200px] left-[-100px] slide-in-right">
           <img
-            src="@/assets/images/home.jpg"
+            src="@/assets/images/home.jpeg"
             alt="Home Image"
-            class="absolute top-32 z-10 object-cover rounded-full"
+            class="object-cover rounded-full overflow-hidden"
           />
-          <div
-            class="circle absolute rounded-full top-[-5px] left-[30px] w-[1280px] h-[1280px]"
-          ></div>
+        </div>
+        <div class="w-[80vw] absolute top-[-200px] left-[-80px] slide-in-right">
+          <img
+            src="@/assets/images/background.png"
+            alt="circle"
+            class="circle object-cover rounded-full overflow-hidden"
+          />
         </div>
       </div>
     </section>
@@ -54,6 +56,12 @@ section {
   font-family: 'Playfair Display', serif;
 }
 
+a {
+  @apply text-[3vw];
+  @apply text-white;
+  @apply font-bold;
+}
+
 nav a {
   transition:
     transform 0.3s ease,
@@ -63,6 +71,6 @@ nav a {
 nav a:hover {
   transform: scale(1.5);
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 </style>

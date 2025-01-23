@@ -9,8 +9,6 @@
 }
 
 .circle {
-  z-index: 0;
-  background-color: rgb(236, 164, 245);
   animation: move 4.5s linear infinite;
 }
 
