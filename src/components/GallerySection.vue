@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import DividerComponents from './DividerComponents.vue'
 
 const galleryRow = [
@@ -84,10 +84,42 @@ const openModal = (imageSrc) => {
   modalImage.value = imageSrc
   modal.value.showModal()
 }
+
+const isGalleryLoading = ref(true)
+
+const checkImageLoading = () => {
+  let loadingImage = 0
+  const totalImage = galleryRow.flat().length
+
+  galleryRow.flat().forEach(({ src }) => {
+    const img = new Image()
+    img.src = src
+
+    img.onload = () => {
+      loadingImage++
+      if (loadingImage === totalImage) {
+        isGalleryLoading.value = false
+      }
+    }
+  })
+}
+
+onMounted(() => {
+  checkImageLoading()
+})
 </script>
 
 <template>
-  <section id="gallery" class="flex relative">
+  <div
+    v-if="isGalleryLoading"
+    class="fixed inset-0 flex items-center justify-center bg-[#1d32ed] z-50"
+  >
+    <p class="text-white text-3xl font-bold animate-pulse">
+      Loading... Eat a cookie wait a minute! 🍪(≧◡≦)
+    </p>
+  </div>
+
+  <section v-else id="gallery" class="flex relative">
     <div class="w-1/4 h-full pt-32">
       <img
         class="bg-white object-cover w-[23vw] ml-[2vw]"
