@@ -88,17 +88,17 @@ const openModal = (imageSrc) => {
 
 <template>
   <section id="gallery" class="flex relative">
-    <div class="w-[300px] h-full mt-[207px]">
+    <div class="w-[280px] h-full mt-[207px]">
       <img
-        class="bg-white object-cover w-[270px] ml-[30px]"
+        class="bg-white object-cover w-[240px] ml-[30px]"
         src="@/assets/images/galleryText.png"
         alt=""
       />
     </div>
 
-    <div class="w-[1000px] h-full pt-[200px] bg-[#334ac9] border-l-[7px] border-[#ff96fd]">
+    <div class="w-[1020px] h-full pt-[200px] bg-[#334ac9] border-l-[7px] border-[#ff96fd]">
       <div v-for="(row, rowIndex) in galleryRow" :key="rowIndex">
-        <div class="flex flex-row gap-6 pt-5 ml-[90px]">
+        <div class="flex flex-row gap-6 pt-5 ml-[100px]">
           <div
             v-for="(image, index) in row"
             :key="index"
