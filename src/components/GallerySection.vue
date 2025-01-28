@@ -152,7 +152,7 @@ onMounted(() => {
         <div class="p-5"><DividerComponents /></div>
       </div>
       <dialog id="fullImage" ref="modal" class="modal">
-        <div class="modal-box">
+        <div class="modal-box p-0">
           <img :src="modalImage" class="object-cover w-full h-auto" />
         </div>
         <form method="dialog" class="modal-backdrop">
