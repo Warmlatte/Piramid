@@ -11,11 +11,19 @@ const smoothScroll = (event) => {
     })
   }
 }
+
+defineProps({
+  isGalleryLoading: Boolean,
+})
 </script>
 
 <template>
   <div class="overflow-hidden">
-    <section id="home" class="flex h-screen bg-[#1d32ed]">
+    <section
+      id="home"
+      :class="{ hidden: isGalleryLoading, 'fade-in': !isGalleryLoading }"
+      class="flex h-screen bg-[#1d32ed]"
+    >
       <!-- Text -->
       <div class="w-1/2 ml-[2vw] mt-[4vh]">
         <p class="text-[4vw] text-white font-extrabold slide-in-top">Pyramid of DeadLines</p>

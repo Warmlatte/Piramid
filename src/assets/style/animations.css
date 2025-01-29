@@ -1,4 +1,8 @@
 /* 圖形旋轉動畫 */
+.circle {
+  animation: move 4.5s linear infinite;
+}
+
 @keyframes move {
   0% {
     transform: rotate(0deg) translateX(50px) rotate(-0deg);
@@ -8,11 +12,11 @@
   }
 }
 
-.circle {
-  animation: move 4.5s linear infinite;
+/* 圖片入場動畫 */
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/* 圖片入場動畫 */
 @keyframes slide-in-right {
   0% {
     -webkit-transform: translateX(1000px);
@@ -26,11 +30,11 @@
   }
 }
 
-.slide-in-right {
-  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+/* 文字入場動畫 */
+.slide-in-top {
+  animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/* 文字入場動畫 */
 @keyframes slide-in-top {
   0% {
     -webkit-transform: translateY(-1000px);
@@ -44,11 +48,11 @@
   }
 }
 
-.slide-in-top {
-  animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+/* 文字掉落後回彈動畫 */
+.slide-bounce {
+  animation: slide-bounce 3s cubic-bezier(0.5, 1.5, 0.5, 1) both;
 }
 
-/* 文字掉落後回彈動畫 */
 @keyframes slide-bounce {
   0% {
     transform: translateY(-1000px);
@@ -66,6 +70,16 @@
   }
 }
 
-.slide-bounce {
-  animation: slide-bounce 3s cubic-bezier(0.5, 1.5, 0.5, 1) both;
+/* loading結束首頁入場動畫 */
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
 }
