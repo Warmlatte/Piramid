@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, defineEmits } from 'vue'
 import DividerComponents from './DividerComponents.vue'
 
 const galleryRow = [
@@ -85,27 +85,38 @@ const openModal = (imageSrc) => {
   modal.value.showModal()
 }
 
+const emit = defineEmits(['updata-loading'])
 const isGalleryLoading = ref(true)
 
-const checkImageLoading = () => {
-  let loadingImage = 0
-  const totalImage = galleryRow.flat().length
+const checkGalleryImageLoaded = () => {
+  let loadedImage = 0
 
-  galleryRow.flat().forEach(({ src }) => {
-    const img = new Image()
-    img.src = src
+  const galleryImages = document.querySelectorAll('.gallery-img')
+  const totalImages = galleryImages.length
 
-    img.onload = () => {
-      loadingImage++
-      if (loadingImage === totalImage) {
-        isGalleryLoading.value = false
+  if (totalImages === 0) {
+    isGalleryLoading.value = false
+    emit('updata-loading', false)
+    return
+  }
+
+  galleryImages.forEach((img) => {
+    if (img.complete) {
+      loadedImage++
+    } else {
+      img.onload = () => {
+        loadedImage++
+        if (loadedImage === totalImages) {
+          isGalleryLoading.value = false
+          emit('updata-loading', false)
+        }
       }
     }
   })
 }
 
 onMounted(() => {
-  checkImageLoading()
+  checkGalleryImageLoaded()
 })
 </script>
 
@@ -141,7 +152,7 @@ onMounted(() => {
               @click="openModal(image.src)"
             >
               <img
-                class="object-cover w-full h-full rounded-xl"
+                class="object-cover w-full h-full rounded-xl gallery-img"
                 :src="image.src"
                 :alt="image.alt"
                 loading="lazy"
