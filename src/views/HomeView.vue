@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import NavbarComponent from '@/components/NavbarComponent.vue'
 import HomeSection from '@/components/HomeSection.vue'
 import GallerySection from '@/components/GallerySection.vue'
@@ -33,7 +33,7 @@ const checkImageLoading = () => {
 }
 
 onMounted(() => {
-  checkImageLoading()
+  nextTick(checkImageLoading)
 })
 </script>
 
@@ -41,7 +41,13 @@ onMounted(() => {
   <div>
     <NavbarComponent />
     <HomeSection :isGalleryLoading="isGalleryLoading" />
-    <GallerySection @updata-loading="(value) => (isGalleryLoading = value)" />
+    <GallerySection
+      @update-loading="
+        (value) => {
+          isGalleryLoading = value
+        }
+      "
+    />
     <AboutSection />
     <PricingSection />
   </div>

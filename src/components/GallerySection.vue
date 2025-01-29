@@ -85,7 +85,7 @@ const openModal = (imageSrc) => {
   modal.value.showModal()
 }
 
-const emit = defineEmits(['updata-loading'])
+const emit = defineEmits(['update-loading'])
 const isGalleryLoading = ref(true)
 
 const checkGalleryImageLoaded = () => {
@@ -96,7 +96,7 @@ const checkGalleryImageLoaded = () => {
 
   if (totalImages === 0) {
     isGalleryLoading.value = false
-    emit('updata-loading', false)
+    emit('update-loading', false)
     return
   }
 
@@ -108,7 +108,7 @@ const checkGalleryImageLoaded = () => {
         loadedImage++
         if (loadedImage === totalImages) {
           isGalleryLoading.value = false
-          emit('updata-loading', false)
+          emit('update-loading', false)
         }
       }
     }
@@ -123,7 +123,7 @@ onMounted(() => {
 <template>
   <div
     v-if="isGalleryLoading"
-    class="fixed inset-0 flex items-center justify-center bg-[#1d32ed] z-50"
+    class="fixed inset-0 flex items-center justify-center bg-[#1d32ed] z-[9999]"
   >
     <p class="text-white text-3xl font-bold animate-pulse">
       Loading... Eat a cookie wait a minute! 🍪(≧◡≦)
