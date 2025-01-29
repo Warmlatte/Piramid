@@ -44,14 +44,6 @@ onUnmounted(() => {
       'bg-white/90 shadow-md',
     ]"
   >
-    <!-- <div class="flex">
-      <ul class="flex flex-row">
-        <li><a href="#home" class="text-4xl font-bold">Home</a></li>
-        <li><a href="#gallery" class="text-4xl font-bold">Gallery</a></li>
-        <li><a href="#about" class="text-4xl font-bold">About Me</a></li>
-        <li><a href="#pricing" class="text-4xl font-bold">Guidelines & Pricing</a></li>
-      </ul>
-    </div> -->
     <ul class="flex justify-center space-x-8 py-4">
       <li v-for="tab in tabs" :key="tab.id">
         <button

@@ -2,7 +2,7 @@
 
 <template>
   <section id="about" class="flex w-full">
-    <div class="w-1/4 h-full pt-[10vh]">
+    <div class="w-1/4 h-full pt-[12vh]">
       <img
         class="bg-white object-cover w-[19.5vw] ml-[5vw]"
         src="@/assets/images/aboutText.png"
@@ -11,7 +11,7 @@
     </div>
 
     <div
-      class="flex flex-row w-3/4 h-full pt-[10vh] pb-[25vh] bg-[#334ac9] border-l-[7px] border-[#ff96fd]"
+      class="flex flex-row w-3/4 h-full pt-[12vh] pb-[25vh] bg-[#334ac9] border-l-[7px] border-[#ff96fd]"
     >
       <!-- 自介 -->
       <div class="ml-[7.5vw] mt-[7vh]">
@@ -25,7 +25,7 @@
         </div>
 
         <p style="margin-bottom: 3vh">
-          香茶 Paung De
+          <span class="text-2xl font-bold">香茶 Paung De</span>
           <br />
           偶爾畫圖的非專業繪師，推角右派
         </p>
@@ -77,7 +77,7 @@
               src="@/assets/images/icons/facebook_icon.png"
               alt="Facebook Icon"
             />
-            <p class="mb-[2vh]">比較常在這裡</p>
+            <p>比較常在這裡</p>
           </a>
 
           <a
@@ -90,7 +90,7 @@
               src="@/assets/images/icons/plurk_icon.png"
               alt="Plurk Icon"
             />
-            <p class="mb-[2vh]">西批向或是日常廢文大多放這</p>
+            <p>西批向或是日常廢文大多放這</p>
           </a>
 
           <a
@@ -103,7 +103,7 @@
               src="@/assets/images/icons/pixiv_icon.png"
               alt="Pixiv Icon"
             />
-            <p class="mb-[2vh]">整理完之後一次丟上去，更新較慢</p>
+            <p>整理完之後一次丟上去，更新較慢</p>
           </a>
         </nav>
       </div>
@@ -117,5 +117,11 @@ p {
   @apply text-white;
   @apply text-[1.2vw];
   @apply mt-[2.5vh];
+}
+
+nav p {
+  @apply mb-[2vh];
+  @apply hover:text-[#ff96fd];
+  @apply hover:transition-transform duration-500;
 }
 </style>
