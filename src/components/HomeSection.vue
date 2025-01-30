@@ -1,4 +1,8 @@
 <script setup>
+import { useGalleryStore } from '@/store/galleryStore'
+
+const galleryStore = useGalleryStore()
+
 const smoothScroll = (event) => {
   event.preventDefault()
   const targetId = event.target.getAttribute('href').substring(1)
@@ -11,17 +15,13 @@ const smoothScroll = (event) => {
     })
   }
 }
-
-defineProps({
-  isGalleryLoading: Boolean,
-})
 </script>
 
 <template>
   <div class="overflow-hidden">
     <section
       id="home"
-      :class="{ hidden: isGalleryLoading, 'fade-in': !isGalleryLoading }"
+      :class="{ hidden: galleryStore.isGalleryLoading, 'fade-in': !galleryStore.isGalleryLoading }"
       class="flex h-screen bg-[#1d32ed]"
     >
       <!-- Text -->

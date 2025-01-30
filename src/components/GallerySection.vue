@@ -1,5 +1,6 @@
 <script setup>
-import { onMounted, ref, defineEmits } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useGalleryStore } from '@/store/galleryStore'
 import DividerComponents from './DividerComponents.vue'
 
 const galleryRow = [
@@ -85,45 +86,17 @@ const openModal = (imageSrc) => {
   modal.value.showModal()
 }
 
-const emit = defineEmits(['update-loading'])
-const isGalleryLoading = ref(true)
-
-const checkGalleryImageLoaded = () => {
-  let loadedImage = 0
-
-  const galleryImages = document.querySelectorAll('.gallery-img')
-  const totalImages = galleryImages.length
-
-  if (totalImages === 0) {
-    isGalleryLoading.value = false
-    emit('update-loading', false)
-    return
-  }
-
-  galleryImages.forEach((img) => {
-    if (img.complete) {
-      loadedImage++
-    } else {
-      img.onload = () => {
-        loadedImage++
-        if (loadedImage === totalImages) {
-          isGalleryLoading.value = false
-          emit('update-loading', false)
-        }
-      }
-    }
-  })
-}
+const galleryStore = useGalleryStore()
 
 onMounted(() => {
-  checkGalleryImageLoaded()
+  galleryStore.checkImageLoading(galleryRow)
 })
 </script>
 
 <template>
   <div
-    v-if="isGalleryLoading"
-    class="fixed inset-0 flex items-center justify-center bg-[#1d32ed] z-[9999]"
+    v-if="galleryStore.isGalleryLoading"
+    class="fixed inset-0 flex items-center justify-center bg-[#1d32ed] z-50"
   >
     <p class="text-white text-3xl font-bold animate-pulse">
       Loading... Eat a cookie wait a minute! 🍪(≧◡≦)
@@ -152,7 +125,7 @@ onMounted(() => {
               @click="openModal(image.src)"
             >
               <img
-                class="object-cover w-full h-full rounded-xl gallery-img"
+                class="object-cover w-full h-full rounded-xl"
                 :src="image.src"
                 :alt="image.alt"
                 loading="lazy"
