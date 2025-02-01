@@ -137,7 +137,7 @@ onMounted(() => {
       </div>
       <dialog id="fullImage" ref="modal" class="modal">
         <div class="modal-box p-0">
-          <img :src="modalImage" class="object-cover w-full h-auto" />
+          <img :src="modalImage" alt="Modal Image" class="object-cover w-full h-auto" />
         </div>
         <form method="dialog" class="modal-backdrop">
           <button>close</button>
