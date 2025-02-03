@@ -26,7 +26,7 @@ const smoothScroll = (event) => {
     >
       <!-- Text -->
       <div class="w-1/2 ml-[2vw] mt-[4vh]">
-        <p class="text-[4vw] text-white font-extrabold slide-in-top">Pyramid of DeadLines</p>
+        <p class="text-[4vw] text-white font-extrabold slide-in-top">Piramid of DeadLines</p>
         <nav class="flex flex-col ml-[10vw] mt-[30vh] slide-bounce">
           <a href="#gallery" @click="smoothScroll">Gallery</a>
           <a href="#about" @click="smoothScroll">About Me</a>
